@@ -1,4 +1,4 @@
-import csv,random
+import random
 
 def quicksort(nums,fst,lst):
     '''Сортирует заданный массив по второму элементу подмассива
@@ -20,22 +20,12 @@ def quicksort(nums,fst,lst):
     quicksort(nums,fst,j)
     quicksort(nums,i,lst)
 
-
 with open('scientist.txt',encoding='utf8') as file:
     a=file.readline()
     data=[x.split('#') for x in file.read().split('\n') if x!='']
     quicksort(data,0,len(data)-1)
-
-origin=''
-print('Разработчиками Аллопуринола были такие люди (результаты выведите в порядке возрастания даты):')
-for x in data:
-    if x[1]=='Аллопуринол':
-        print(f"{x[0]} - {x[2]}")
-        if origin == '':
-            origin=x[0]
-print(f"Оригинальный рецепт принадлежит: {origin}")
-
-with open('scientist_origin.txt','w',encoding='utf8') as file:
-    file.write('ScientistName#preparation#date#components')
+    count=0
     for i in data:
-        file.write('#'.join(i)+'\n')
+        print(f"{i[0]}:  {i[1]}")
+        count+=1
+        if count==5: break
