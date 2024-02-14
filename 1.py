@@ -36,6 +36,6 @@ for x in data:
 print(f"Оригинальный рецепт принадлежит: {origin}")
 
 with open('scientist_origin.txt','w',encoding='utf8') as file:
-    file.write('ScientistName#preparation#date#components')
+    file.write('ScientistName#preparation#date#components\n')
     for i in data:
         file.write('#'.join(i)+'\n')
